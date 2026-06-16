@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verify OTP | EstateAI</title>
+
+```
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}">
+```
+
+</head>
+
+<body>
+
+<div class="auth-wrapper">
+
+```
+<div class="container">
+
+    <div class="logo-section">
+        <h1>🏡 EstateAI</h1>
+        <p>AI Powered Property Valuation System</p>
+    </div>
+
+    <h2>🔐 Verify OTP</h2>
+
+    <p class="subtitle">
+        Enter the 6-digit verification code sent to your email address.
+    </p>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="alert {{ category }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    <form method="POST"
+          action="{{ url_for('verify_otp') }}">
+
+        <input type="text"
+               name="otp"
+               maxlength="6"
+               placeholder="Enter 6-Digit OTP"
+               required>
+
+        <button type="submit">
+            Verify OTP
+        </button>
+
+    </form>
+
+    <div class="bottom-link">
+        <a href="{{ url_for('forgot_password') }}">
+            ← Back to Forgot Password
+        </a>
+    </div>
+
+</div>
+```
+
+</div>
+
+</body>
+</html>

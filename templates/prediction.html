@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Prediction</title>
+
+<link rel="stylesheet"
+href="{{ url_for('static',
+filename='css/style.css') }}">
+
+<style>
+
+.navbar{
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+
+padding:20px 50px;
+
+background:rgba(255,255,255,.05);
+
+backdrop-filter:blur(15px);
+
+position:sticky;
+top:0;
+z-index:1000;
+}
+
+.logo{
+
+font-size:28px;
+font-weight:700;
+color:#4facfe;
+}
+
+.nav-links{
+
+display:flex;
+gap:25px;
+}
+
+.nav-links a{
+
+color:white;
+text-decoration:none;
+transition:.3s;
+font-weight:500;
+}
+
+.nav-links a:hover{
+
+color:#4facfe;
+}
+</style>
+
+</head>
+
+<body background:
+linear-gradient(
+rgba(0,0,0,0.65),
+rgba(0,0,0,0.75)
+), url('https://images.unsplash.com/photo-1560518883-ce09059eeffa');>
+<nav class="navbar">
+
+<div class="logo">
+EstateAI
+</div>
+
+<div class="nav-links">
+
+<a href="/home">Home</a>
+<a href="/prediction">Predict</a>
+<a href="/dashboard">Dashboard</a>
+<a href="/feedback">Feedback</a>
+<a href="/profile">Profile</a>
+
+</div>
+
+</nav>
+
+<div class="container">
+
+<h2>Property Price Prediction</h2>
+
+
+<form method="POST">
+
+<input
+type="number"
+name="area"
+placeholder="Area"
+required>
+
+<input
+type="number"
+name="bedrooms"
+placeholder="Bedrooms"
+required>
+
+<input
+type="number"
+name="bathrooms"
+placeholder="Bathrooms"
+required>
+
+<input
+type="number"
+name="stories"
+placeholder="Stories"
+required>
+
+<select name="mainroad">
+
+<option value="1">
+Main Road - Yes
+</option>
+
+<option value="0">
+Main Road - No
+</option>
+
+</select>
+
+<select name="guestroom">
+
+<option value="1">
+Guest Room - Yes
+</option>
+
+<option value="0">
+Guest Room - No
+</option>
+
+</select>
+
+<select name="basement">
+
+<option value="1">
+Basement - Yes
+</option>
+
+<option value="0">
+Basement - No
+</option>
+
+</select>
+
+<select name="hotwaterheating">
+
+<option value="1">
+Hot Water Heating - Yes
+</option>
+
+<option value="0">
+Hot Water Heating - No
+</option>
+
+</select>
+
+<select name="airconditioning">
+
+<option value="1">
+Air Conditioning - Yes
+</option>
+
+<option value="0">
+Air Conditioning - No
+</option>
+
+</select>
+
+<input
+type="number"
+name="parking"
+placeholder="Parking"
+required>
+
+<select name="prefarea">
+
+<option value="1">
+Preferred Area - Yes
+</option>
+
+<option value="0">
+Preferred Area - No
+</option>
+
+</select>
+
+<select name="furnishingstatus">
+
+<option value="0">
+Furnished
+</option>
+
+<option value="1">
+Semi Furnished
+</option>
+
+<option value="2">
+Unfurnished
+</option>
+
+</select>
+
+<button type="submit">
+
+Predict Price
+
+</button>
+
+</form>
+
+{% if prediction %}
+
+<div class="result-card">
+
+<h3>
+Predicted Price
+</h3>
+
+<h1>
+₹ {{ prediction }}
+</h1>
+
+</div>
+
+{% endif %}
+
+</div>
+<section class="trust-section">
+
+<h2>Why Investors Trust EstateAI</h2>
+
+<p>
+
+EstateAI combines Machine Learning,
+Property Analytics and Market Intelligence
+to provide highly reliable real-estate price
+predictions. Our platform helps buyers,
+investors and property owners make smarter
+decisions with confidence.
+
+</p>
+
+<div class="trust-grid">
+
+<div class="trust-card">
+
+<h3>🏠 Real Estate Intelligence</h3>
+
+<p>
+
+Advanced algorithms analyze property
+characteristics to estimate market value.
+
+</p>
+
+</div>
+
+<div class="trust-card">
+
+<h3>📈 Investment Insights</h3>
+
+<p>
+
+Discover growth opportunities and
+future investment potential instantly.
+
+</p>
+
+</div>
+
+<div class="trust-card">
+
+<h3>⚡ Fast Predictions</h3>
+
+<p>
+
+Get property valuation results within
+seconds using AI-powered models.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<footer>
+
+<h3>EstateAI</h3>
+
+<p>
+
+AI Powered Property Valuation &
+Real Estate Intelligence Platform
+
+</p>
+
+<div class="footer-links">
+
+<a href="/home">Home</a>
+
+<a href="/prediction">Predict</a>
+
+<a href="/dashboard">Dashboard</a>
+
+<a href="/feedback">Feedback</a>
+
+<a href="/profile">Profile</a>
+
+</div>
+
+<div class="footer-bottom">
+
+© 2026 EstateAI | Developed By Prajwal T.S.
+
+<br><br>
+
+Machine Learning • Real Estate Analytics • AI Insights
+
+</div>
+
+</footer>
+
+</body>
+
+</html>

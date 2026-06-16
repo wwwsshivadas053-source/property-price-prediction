@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>EstateAI | Profile</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+
+background:
+linear-gradient(
+rgba(5,15,35,.92),
+rgba(5,15,35,.96)
+),
+url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1920');
+
+background-size:cover;
+background-position:center;
+background-attachment:fixed;
+
+min-height:100vh;
+color:white;
+}
+
+/* NAVBAR */
+
+.navbar{
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+
+padding:20px 50px;
+
+background:rgba(255,255,255,.05);
+
+backdrop-filter:blur(15px);
+
+position:sticky;
+top:0;
+z-index:1000;
+}
+
+.logo{
+
+font-size:28px;
+font-weight:700;
+color:#4facfe;
+}
+
+.nav-links{
+
+display:flex;
+gap:25px;
+}
+
+.nav-links a{
+
+color:white;
+text-decoration:none;
+font-weight:500;
+transition:.3s;
+}
+
+.nav-links a:hover{
+
+color:#4facfe;
+}
+
+/* PROFILE SECTION */
+
+.profile-wrapper{
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+padding:80px 20px;
+}
+
+.profile-card{
+
+width:100%;
+max-width:750px;
+
+background:rgba(255,255,255,.08);
+
+backdrop-filter:blur(15px);
+
+border-radius:25px;
+
+padding:40px;
+
+text-align:center;
+
+box-shadow:
+0 15px 40px rgba(0,0,0,.35);
+}
+
+.profile-avatar{
+
+width:120px;
+height:120px;
+
+margin:auto;
+
+border-radius:50%;
+
+background:
+linear-gradient(
+135deg,
+#4facfe,
+#00f2fe
+);
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+font-size:55px;
+}
+
+.profile-card h1{
+
+margin-top:20px;
+margin-bottom:10px;
+
+font-size:34px;
+}
+
+.subtitle{
+
+color:#ccc;
+margin-bottom:30px;
+}
+
+/* INFO BOXES */
+
+.info-box{
+
+background:rgba(255,255,255,.05);
+
+padding:18px 20px;
+
+border-radius:15px;
+
+margin-bottom:15px;
+
+text-align:left;
+}
+
+.label{
+
+color:#4facfe;
+font-weight:600;
+margin-bottom:5px;
+}
+
+.value{
+
+font-size:17px;
+color:white;
+}
+
+/* STATS */
+
+.stats-grid{
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(180px,1fr));
+
+gap:15px;
+
+margin-top:25px;
+margin-bottom:25px;
+}
+
+.stat-card{
+
+background:rgba(255,255,255,.05);
+
+padding:20px;
+
+border-radius:15px;
+
+text-align:center;
+}
+
+.stat-card h2{
+
+color:#4facfe;
+margin-bottom:8px;
+}
+
+/* BUTTONS */
+
+.btn-group{
+
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:15px;
+
+margin-top:30px;
+}
+
+.btn{
+
+padding:14px 28px;
+
+border:none;
+
+border-radius:12px;
+
+text-decoration:none;
+
+font-weight:600;
+
+color:white;
+
+transition:.3s;
+}
+
+.dashboard{
+
+background:
+linear-gradient(
+135deg,
+#00c853,
+#009624
+);
+}
+
+.admin{
+
+background:
+linear-gradient(
+135deg,
+#4facfe,
+#00f2fe
+);
+}
+
+.logout{
+
+background:
+linear-gradient(
+135deg,
+#ff5252,
+#d50000
+);
+}
+
+.btn:hover{
+
+transform:
+translateY(-5px)
+scale(1.03);
+}
+
+/* FOOTER */
+
+.footer{
+
+text-align:center;
+
+padding:25px;
+
+color:#aaa;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+.navbar{
+
+flex-direction:column;
+gap:15px;
+}
+
+.nav-links{
+
+flex-wrap:wrap;
+justify-content:center;
+}
+
+.profile-card{
+
+padding:25px;
+}
+
+.btn-group{
+
+flex-direction:column;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav class="navbar">
+
+<div class="logo">
+EstateAI
+</div>
+
+<div class="nav-links">
+
+<a href="/home">Home</a>
+
+<a href="/prediction">Predict</a>
+
+<a href="/dashboard">Dashboard</a>
+
+<a href="/feedback">Feedback</a>
+
+<a href="/profile">Profile</a>
+
+</div>
+
+</nav>
+
+<!-- PROFILE -->
+
+<div class="profile-wrapper">
+
+<div class="profile-card">
+
+<div class="profile-avatar">
+🏠
+</div>
+
+<h1>{{ user['fullname'] }}</h1>
+
+<p class="subtitle">
+EstateAI Registered User
+</p>
+
+<div class="info-box">
+
+<div class="label">
+📧 Email Address
+</div>
+
+<div class="value">
+{{ user['email'] }}
+</div>
+
+</div>
+
+<div class="info-box">
+
+<div class="label">
+📱 Phone Number
+</div>
+
+<div class="value">
+{{ user['phone'] }}
+</div>
+
+</div>
+
+<div class="info-box">
+
+<div class="label">
+🆔 User ID
+</div>
+
+<div class="value">
+#{{ user['id'] }}
+</div>
+
+</div>
+
+<!-- STATS -->
+
+<div class="stats-grid">
+
+<div class="stat-card">
+<h2>94%</h2>
+<p>AI Accuracy</p>
+</div>
+
+<div class="stat-card">
+<h2>24/7</h2>
+<p>Support</p>
+</div>
+
+<div class="stat-card">
+<h2>Secure</h2>
+<p>Account</p>
+</div>
+
+</div>
+
+<!-- BUTTONS -->
+
+<div class="btn-group">
+
+<a href="/dashboard" class="btn dashboard">
+📊 Dashboard
+</a>
+
+<a href="/admin-login" class="btn admin">
+🔐 Admin Login
+</a>
+
+<a href="/logout" class="btn logout">
+🚪 Logout
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="footer">
+
+© 2026 EstateAI | Developed By Prajwal T.S.
+
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,439 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>EstateAI | Admin Login</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+
+background:
+linear-gradient(
+rgba(5,15,35,.90),
+rgba(5,15,35,.95)
+),
+url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1920');
+
+background-size:cover;
+background-position:center;
+background-attachment:fixed;
+
+min-height:100vh;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+padding:20px;
+}
+
+.auth-card{
+
+width:100%;
+max-width:950px;
+
+background:rgba(255,255,255,.08);
+
+backdrop-filter:blur(20px);
+
+border-radius:25px;
+
+overflow:hidden;
+
+display:grid;
+grid-template-columns:1fr 1fr;
+
+box-shadow:
+0 15px 40px rgba(0,0,0,.35);
+
+animation:fadeIn .8s ease;
+}
+
+.left{
+
+padding:50px;
+
+display:flex;
+flex-direction:column;
+justify-content:center;
+}
+
+.logo{
+
+width:90px;
+height:90px;
+
+border-radius:50%;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+background:
+linear-gradient(
+135deg,
+#ff9800,
+#ff5722
+);
+
+font-size:42px;
+
+margin-bottom:20px;
+}
+
+.left h1{
+
+font-size:42px;
+
+margin-bottom:15px;
+
+background:
+linear-gradient(
+90deg,
+#ff9800,
+#ff5722
+);
+
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.left p{
+
+color:#ddd;
+
+line-height:1.8;
+
+font-size:16px;
+}
+
+.feature-list{
+
+margin-top:25px;
+}
+
+.feature{
+
+display:flex;
+align-items:center;
+
+gap:10px;
+
+margin-bottom:15px;
+
+color:#eee;
+}
+
+.right{
+
+padding:45px;
+}
+
+.right h2{
+
+text-align:center;
+
+color:white;
+
+margin-bottom:10px;
+}
+
+.subtitle{
+
+text-align:center;
+
+color:#ccc;
+
+margin-bottom:25px;
+}
+
+.input-group{
+
+margin-bottom:18px;
+}
+
+input{
+
+width:100%;
+
+padding:14px;
+
+border:none;
+outline:none;
+
+border-radius:12px;
+
+background:
+rgba(255,255,255,.08);
+
+color:white;
+
+font-size:15px;
+}
+
+input::placeholder{
+
+color:#bbb;
+}
+
+.login-btn{
+
+width:100%;
+
+padding:14px;
+
+border:none;
+
+border-radius:12px;
+
+cursor:pointer;
+
+font-size:16px;
+font-weight:600;
+
+background:
+linear-gradient(
+135deg,
+#ff9800,
+#ff5722
+);
+
+color:white;
+
+transition:.3s;
+}
+
+.login-btn:hover{
+
+transform:
+translateY(-3px)
+scale(1.02);
+}
+
+.links{
+
+margin-top:20px;
+
+text-align:center;
+}
+
+.links a{
+
+display:block;
+
+margin-top:10px;
+
+text-decoration:none;
+
+color:#4facfe;
+}
+
+.links a:hover{
+
+text-decoration:underline;
+}
+
+.footer{
+
+margin-top:25px;
+
+text-align:center;
+
+font-size:13px;
+
+color:#aaa;
+}
+
+.flash{
+
+background:
+rgba(255,82,82,.15);
+
+padding:12px;
+
+border-radius:10px;
+
+margin-bottom:15px;
+
+color:white;
+
+border:1px solid rgba(255,82,82,.4);
+}
+
+@keyframes fadeIn{
+
+from{
+opacity:0;
+transform:translateY(40px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+
+}
+
+@media(max-width:900px){
+
+.auth-card{
+
+grid-template-columns:1fr;
+}
+
+.left{
+
+text-align:center;
+align-items:center;
+
+padding:35px;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="auth-card">
+
+<div class="left">
+
+<div class="logo">
+🛡️
+</div>
+
+<h1>Admin Portal</h1>
+
+<p>
+
+Secure administration panel for EstateAI.
+
+Monitor users, property predictions,
+feedback analytics, reports and platform activity.
+
+</p>
+
+<div class="feature-list">
+
+<div class="feature">
+📊 Dashboard Analytics
+</div>
+
+<div class="feature">
+👥 User Management
+</div>
+
+<div class="feature">
+🏠 Prediction Monitoring
+</div>
+
+<div class="feature">
+⭐ Feedback Management
+</div>
+
+<div class="feature">
+📈 System Reports
+</div>
+
+</div>
+
+</div>
+
+<div class="right">
+
+<h2>Administrator Login</h2>
+
+<p class="subtitle">
+Authorized Access Only
+</p>
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+{% if messages %}
+{% for category, message in messages %}
+
+<div class="flash">
+{{ message }}
+</div>
+
+{% endfor %}
+{% endif %}
+{% endwith %}
+
+<form method="POST">
+
+<div class="input-group">
+
+<input
+type="email"
+name="email"
+placeholder="Admin Email"
+required>
+
+</div>
+
+<div class="input-group">
+
+<input
+type="password"
+name="password"
+placeholder="Admin Password"
+required>
+
+</div>
+
+<button
+type="submit"
+class="login-btn">
+
+Login To Dashboard
+
+</button>
+
+</form>
+
+<div class="links">
+
+<a href="/login">
+← Back To User Login
+</a>
+
+<a href="/register">
+Create User Account
+</a>
+
+</div>
+
+<div class="footer">
+
+© 2026 EstateAI<br>
+Developed By Prajwal T.S.
+
+</div>
+
+</div>
+
+</div>
+
+</body>
+
+</html>
+```

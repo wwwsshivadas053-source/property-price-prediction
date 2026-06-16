@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Manage Users</title>
+
+<link rel="stylesheet"
+href="{{ url_for('static',
+filename='css/admin.css') }}">
+
+</head>
+
+<body>
+
+{% include 'admin_sidebar.html' %}
+
+<div class="main-content">
+
+<h1 class="page-title">
+Manage Users
+</h1>
+
+<div class="table-container">
+
+<table>
+
+<tr>
+<th>ID</th>
+<th>Name</th>
+<th>Email</th>
+<th>Action</th>
+</tr>
+
+{% for user in users %}
+
+<tr>
+
+<td>{{ user['id'] }}</td>
+
+<td>{{ user['fullname'] }}</td>
+
+<td>{{ user['email'] }}</td>
+
+<td>
+
+<a href="/delete-user/{{ user['id'] }}"
+class="delete-btn">
+
+Delete
+
+</a>
+
+</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+</div>
+
+</div>
+
+</body>
+</html>
