@@ -471,6 +471,8 @@ Download PDF Report
 ## 💬 15. Manage Feedback
 
 <img width="1352" alt="Manage Feedback" src="https://github.com/user-attachments/assets/5cfdc3c2-5692-4f60-8d03-c45b83b6c288" />
+
+---
 # 🤝 Contributing
 
 Contributions are welcome.
