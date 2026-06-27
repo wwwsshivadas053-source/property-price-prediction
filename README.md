@@ -511,7 +511,7 @@ This project is licensed under the **MIT License**.
 **Prajwal T.S.**
 
 - GitHub: https://github.com/yourusername
-- LinkedIn: https://linkedin.com/in/yourprofile
+- LinkedIn: https://www.linkedin.com/in/prajwal-t-s-354a57359
 
 ---
 
